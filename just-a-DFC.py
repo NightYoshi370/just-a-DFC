@@ -88,7 +88,8 @@ def dummyFilesNeeded(freeSpace):
     x =  freeSpace % 4
     if x <= 2:
         print("Dummy files aren't necessary!")
-        print("The application will now close")
+        print("Press ENTER to close the application")
+        input()
         sys.exit()
     else:
         z = x - 2
@@ -111,13 +112,15 @@ def createDummyFiles(amount,dummyFileLocation):
     print("")
     print("To double check you could run this program after it has closed")
     print("to calculate if the free space is now ok")
-    print("This application will now close")
+    print("Press ENTER to close the application")
     input()
     sys.exit()
 
 def main():
     if(sys.version_info.major < 3):
         print("This program will ONLY work on Python 3 and above")
+        print("Press ENTER to close the application")
+        input()
         sys.exit()
     
     print("Just Kalam's just a dummy file creator (for hiyaCFW)")
@@ -141,8 +144,11 @@ def main():
         driveDirectory = getDriveDirectory()
         freeSpace = getFreeSpace(driveDirectory)
     else:
+        print('Unsupported platform: ', platform.system())
+        print('Press ENTER to close the application')
+        input()
         sys.exit()
-        
+
     print("Free space remaining (in GB) = ", freeSpace)
 
     sizeOfDummyFiles = dummyFilesNeeded(freeSpace)
